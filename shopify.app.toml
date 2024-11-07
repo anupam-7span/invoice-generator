@@ -1,0 +1,32 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "3f92add5ed14ec7ea516c87b7fba4fbf"
+name = "invoice_generator"
+handle = "invoice_generator"
+application_url = "https://villages-gradually-olive-ottawa.trycloudflare.com"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "anupam-demo.myshopify.com"
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products"
+
+[auth]
+redirect_urls = [
+  "https://villages-gradually-olive-ottawa.trycloudflare.com/auth/callback",
+  "https://villages-gradually-olive-ottawa.trycloudflare.com/auth/shopify/callback",
+  "https://villages-gradually-olive-ottawa.trycloudflare.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2024-10"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/uninstalled" ]
+  uri = "/webhooks/app/uninstalled"
+
+[pos]
+embedded = false
